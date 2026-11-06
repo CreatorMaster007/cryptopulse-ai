@@ -1,27 +1,135 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080d18">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080d18">
+<meta name="description" content="Explore cryptocurrency market data, Fear & Greed sentiment, market analysis, token risk indicators and educational crypto calculators with CryptoPulse AI.">
 <title>CryptoPulse AI — Crypto Intelligence</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="canonical" href="https://cryptopulsepro.netlify.app/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div class="app-shell">
-<aside class="sidebar" id="sidebar"><a class="brand" href="#overview"><span class="brand-mark">◈</span><span>CryptoPulse <b>AI</b><small>MARKET INTELLIGENCE</small></span></a>
-<nav><p class="nav-label">WORKSPACE</p><a class="nav-link active" href="#overview">▦ <span>Overview</span></a><a class="nav-link" href="#fear">◉ <span>Fear & Greed</span></a><a class="nav-link" href="#markets">⌁ <span>Market Explorer</span></a><a class="nav-link" href="#advisor">✧ <span>AI Market Advisor</span></a><a class="nav-link" href="#security">⬡ <span>Scam Detector</span></a><a class="nav-link" href="#calculators">⊞ <span>Calculators</span></a><a class="nav-link" href="#learn">⌘ <span>Formula Library</span></a></nav>
-<div class="sidebar-bottom"><div class="api-status"><span class="pulse-dot"></span><span>API connection</span><b id="apiStatus">Checking</b></div><p>Market data is informational, not financial advice.</p><span class="version">CRYPTOPULSE AI · v1.0</span></div></aside>
-<main class="main-content"><header class="topbar"><button class="menu-btn" id="menuBtn">☰</button><div><span class="eyebrow">MARKET OVERVIEW</span><h1>Crypto Intelligence</h1></div><div class="top-actions"><span class="live-pill"><i></i> LIVE DATA</span><button class="icon-btn" id="refreshBtn" title="Refresh data">↻</button><select id="currency"><option value="usd">USD $</option><option value="inr">INR ₹</option></select></div></header>
-<section class="welcome-row"><div><h2>Market pulse, without the noise.</h2><p>Track sentiment, discover market opportunities and understand token risks.</p></div><div class="updated">Last updated <b id="lastUpdated">—</b><small>Auto refresh every 5 hours</small></div></section>
-<section class="stats-grid" id="overview"><article class="stat-card"><div class="stat-head">GLOBAL MARKET CAP <span>◈</span></div><strong id="globalCap">Loading…</strong><small id="globalChange">Aggregated crypto market</small></article><article class="stat-card"><div class="stat-head">24H TRADING VOLUME <span>↗</span></div><strong id="globalVolume">Loading…</strong><small>Reported market volume</small></article><article class="stat-card"><div class="stat-head">BTC DOMINANCE <span>₿</span></div><strong id="btcDominance">—</strong><small>Share of total market cap</small></article><article class="stat-card"><div class="stat-head">ACTIVE CRYPTO ASSETS <span>◉</span></div><strong id="activeCoins">—</strong><small>Tracked market assets</small></article></section>
-<section class="hero-grid"><article class="panel fear-panel" id="fear"><div class="panel-title"><div><span class="eyebrow">MARKET SENTIMENT</span><h3>Fear & Greed Index</h3></div><span class="source-tag">Alternative.me</span></div><div class="gauge-wrap"><div class="gauge" id="gauge"><div class="gauge-inner"><strong id="fearValue">—</strong><span>/ 100</span><b id="fearLabel">Loading</b></div></div></div><div class="gauge-scale"><span>Extreme Fear</span><span>Neutral</span><span>Extreme Greed</span></div><div class="fear-history"><div><small>Yesterday</small><b id="fearYesterday">—</b></div><div><small>Last week</small><b id="fearWeek">—</b></div><div><small>Last month</small><b id="fearMonth">—</b></div></div><p class="muted tiny" id="fearUpdated">Waiting for sentiment data…</p></article>
-<article class="panel advisor-panel" id="advisor"><div class="panel-title"><div><span class="eyebrow">RULE-BASED INSIGHT</span><h3>Market Advisor</h3></div><span class="ai-badge">✧ PULSE AI</span></div><div class="advisor-status"><span class="advisor-icon">✧</span><div><small>Current market stance</small><h2 id="stance">Analyzing…</h2></div></div><p id="advisorText" class="advisor-copy">Market sentiment and market breadth will appear here when data loads.</p><div class="advisor-actions" id="advisorActions"><span>• Sentiment analysis</span><span>• Risk awareness</span><span>• No guaranteed predictions</span></div><div class="disclaimer">This is an educational signal based on public indicators, not a personalized recommendation.</div></article></section>
-<section class="panel market-panel" id="markets"><div class="section-heading"><div><span class="eyebrow">MARKET DISCOVERY</span><h3>Top Crypto Assets</h3><p>Ranked by market capitalization · ATH / ATL history</p></div><div class="table-controls"><input id="coinSearch" placeholder="Search coin or symbol…"><select id="coinSort"><option value="market_cap_desc">Market cap</option><option value="volume_desc">24h volume</option><option value="price_change_percentage_24h_desc">Top gainers</option><option value="price_change_percentage_24h_asc">Top losers</option></select></div></div><div class="table-wrap"><table><thead><tr><th>ASSET</th><th>PRICE</th><th>24H</th><th>MARKET CAP</th><th>24H VOLUME</th><th>ATH</th><th>ATL</th></tr></thead><tbody id="coinRows"><tr><td colspan="7" class="loading-row">Fetching market data…</td></tr></tbody></table></div><div class="table-foot"><span id="coinCount">Top market assets</span><span>Source: CoinGecko · Values may be delayed</span></div></section>
-<section class="two-col"><article class="panel"><div class="panel-title"><div><span class="eyebrow">YOUR NUMBERS</span><h3>Investment Calculator</h3></div><span class="source-tag">INR / USD</span></div><div class="form-grid"><label>Investment amount<input id="investAmount" type="number" value="10000" min="0"></label><label>Buy price<input id="buyPrice" type="number" value="100" min="0" step="any"></label><label>Expected sell price<input id="sellPrice" type="number" value="130" min="0" step="any"></label><label>Fees (%)<input id="feePct" type="number" value="0.2" min="0" step="any"></label></div><div class="calc-result"><div><small>Estimated net profit / loss</small><strong id="profitResult">—</strong></div><div><small>Expected ROI</small><b id="roiResult">—</b></div><div><small>Coins received</small><b id="coinsResult">—</b></div></div><p class="muted tiny">Estimate excludes tax, slippage and other exchange-specific charges.</p></article>
-<article class="panel"><div class="panel-title"><div><span class="eyebrow">AVERAGING STRATEGY</span><h3>DCA Calculator</h3></div><span class="source-tag">SIMULATOR</span></div><div class="form-grid"><label>Buy 1 amount<input id="dcaA1" type="number" value="5000"></label><label>Buy 1 price<input id="dcaP1" type="number" value="100"></label><label>Buy 2 amount<input id="dcaA2" type="number" value="5000"></label><label>Buy 2 price<input id="dcaP2" type="number" value="80"></label></div><div class="calc-result"><div><small>Average buy price</small><strong id="dcaAvg">—</strong></div><div><small>Total invested</small><b id="dcaTotal">—</b></div><div><small>Total coins</small><b id="dcaCoins">—</b></div></div></article></section>
-<section class="two-col"><article class="panel" id="security"><div class="panel-title"><div><span class="eyebrow">ON-CHAIN RISK CHECK</span><h3>Token Scam Detector</h3></div><span class="source-tag">GoPlus Security</span></div><p class="muted">Check a supported EVM token contract. This scan detects selected warning signs; it cannot prove a token is safe.</p><div class="security-form"><select id="chainId"><option value="1">Ethereum</option><option value="56">BNB Chain</option><option value="137">Polygon</option><option value="42161">Arbitrum</option><option value="8453">Base</option><option value="43114">Avalanche</option></select><input id="contractAddress" placeholder="Paste token contract address (0x…)"><button class="primary-btn" id="scanBtn">Scan token ↗</button></div><div id="securityResult" class="security-result"><span class="muted">Your token security report will appear here.</span></div></article>
-<article class="panel"><div class="panel-title"><div><span class="eyebrow">DEX LIQUIDITY LOOKUP</span><h3>Pair & Liquidity Finder</h3></div><span class="source-tag">DEX Screener</span></div><p class="muted">Search a token symbol or trading pair to inspect DEX pools and reported liquidity.</p><div class="security-form"><input id="dexQuery" placeholder="e.g. PEPE, SOL/USDC"><button class="primary-btn" id="dexBtn">Find pools ↗</button></div><div id="dexResult" class="dex-result"><span class="muted">Search results will appear here.</span></div></article></section>
-<section class="panel" id="learn"><div class="section-heading"><div><span class="eyebrow">LEARN THE NUMBERS</span><h3>Crypto Formula Library</h3><p>Core formulas used in market and risk analysis.</p></div></div><div class="formula-grid"><div class="formula"><b>Return on Investment (ROI)</b><code>((Sell value − Cost) ÷ Cost) × 100</code><p>Measures profit or loss relative to initial investment.</p></div><div class="formula"><b>Market Capitalization</b><code>Price × Circulating Supply</code><p>Approximate market value of circulating tokens.</p></div><div class="formula"><b>Fully Diluted Valuation (FDV)</b><code>Price × Max / Total Supply</code><p>Hypothetical valuation if all stated supply were circulating.</p></div><div class="formula"><b>Average Buy Price</b><code>Total amount spent ÷ Total coins</code><p>Weighted average cost across multiple purchases.</p></div><div class="formula"><b>Liquidity / Market Cap</b><code>Pool liquidity ÷ Market cap × 100</code><p>A rough comparison; pool depth and venue coverage matter.</p></div><div class="formula"><b>Risk / Reward</b><code>Potential reward ÷ Potential loss</code><p>Compares a trade's planned upside with downside.</p></div><div class="formula"><b>Drawdown from ATH</b><code>((Current − ATH) ÷ ATH) × 100</code><p>Shows how far price is below its all-time high.</p></div><div class="formula"><b>Break-even Sell Price</b><code>Buy price × (1 + fee rate) ÷ (1 − fee rate)</code><p>Approximation for matching buy and sell fees.</p></div></div><div class="risk-note"><b>Important:</b> No single formula can reliably label a cryptocurrency as genuine or a scam. Verify contracts, liquidity depth, ownership permissions, holder concentration, audits, exchange quality and independent sources. Security APIs can miss new or sophisticated attacks.</div></section>
-<footer><div class="brand mini-brand"><span class="brand-mark">◈</span><span>CryptoPulse <b>AI</b></span></div><span>Market data by CoinGecko, Alternative.me, DEX Screener & GoPlus.</span><span>Educational use only · Not investment advice.</span></footer>
-</main></div><div class="toast" id="toast"></div><script src="app.js"></script>
-</body></html>
+<aside class="sidebar" id="sidebar">
+<a class="brand" href="#overview"><span class="brand-mark">◈</span><span>CryptoPulse <b>AI</b><small>MARKET INTELLIGENCE</small></span></a>
+<nav>
+<p class="nav-label">WORKSPACE</p>
+<a class="nav-link active" href="#overview">▦ <span>Overview</span></a>
+<a class="nav-link" href="#fear">◉ <span>Fear &amp; Greed</span></a>
+<a class="nav-link" href="#markets">⌁ <span>Market Explorer</span></a>
+<a class="nav-link" href="#advisor">✧ <span>AI Market Advisor</span></a>
+<a class="nav-link" href="#security">⬡ <span>Scam Detector</span></a>
+<a class="nav-link" href="#calculators">⊞ <span>Calculators</span></a>
+<a class="nav-link" href="#learn">⌘ <span>Formula Library</span></a>
+<p class="nav-label">INFORMATION</p>
+<a class="nav-link" href="pages/about.html">ⓘ <span>About Us</span></a>
+<a class="nav-link" href="pages/faq.html">? <span>FAQ</span></a>
+<a class="nav-link" href="pages/contact.html">✉ <span>Contact Us</span></a>
+</nav>
+<div class="sidebar-bottom">
+<div class="api-status"><span class="pulse-dot"></span><span>API connection</span><b id="apiStatus">Checking</b></div>
+<p>Market data is informational, not financial advice.</p>
+<span class="version">CRYPTOPULSE AI · v2.0</span>
+</div>
+</aside>
+<main class="main-content">
+<header class="topbar">
+<button class="menu-btn" id="menuBtn">☰</button>
+<div><span class="eyebrow">MARKET OVERVIEW</span><h1>Crypto Intelligence</h1></div>
+<div class="top-actions"><span class="live-pill"><i></i> LIVE DATA</span><button class="icon-btn" id="refreshBtn" title="Refresh data">↻</button><select id="currency"><option value="usd">USD $</option><option value="inr">INR ₹</option></select></div>
+</header>
+<section class="welcome-row">
+<div><h2>Market pulse, without the noise.</h2><p>Track sentiment, discover market opportunities and understand token risks.</p></div>
+<div class="updated">Last updated <b id="lastUpdated">—</b><small>Auto refresh every 5 hours</small></div>
+</section>
+<section class="stats-grid" id="overview">
+<article class="stat-card"><div class="stat-head">GLOBAL MARKET CAP <span>◈</span></div><strong id="globalCap">Loading…</strong><small id="globalChange">Aggregated crypto market</small></article>
+<article class="stat-card"><div class="stat-head">24H TRADING VOLUME <span>↗</span></div><strong id="globalVolume">Loading…</strong><small>Reported market volume</small></article>
+<article class="stat-card"><div class="stat-head">BTC DOMINANCE <span>₿</span></div><strong id="btcDominance">—</strong><small>Share of total market cap</small></article>
+<article class="stat-card"><div class="stat-head">ACTIVE CRYPTO ASSETS <span>◉</span></div><strong id="activeCoins">—</strong><small>Tracked market assets</small></article>
+</section>
+<section class="hero-grid">
+<article class="panel fear-panel" id="fear">
+<div class="panel-title"><div><span class="eyebrow">MARKET SENTIMENT</span><h3>Fear &amp; Greed Index</h3></div><span class="source-tag">Alternative.me</span></div>
+<div class="gauge-wrap"><div class="gauge" id="gauge"><div class="gauge-inner"><strong id="fearValue">—</strong><span>/ 100</span><b id="fearLabel">Loading</b></div></div></div>
+<div class="gauge-scale"><span>Extreme Fear</span><span>Neutral</span><span>Extreme Greed</span></div>
+<div class="fear-history"><div><small>Yesterday</small><b id="fearYesterday">—</b></div><div><small>Last week</small><b id="fearWeek">—</b></div><div><small>Last month</small><b id="fearMonth">—</b></div></div>
+<p class="muted tiny" id="fearUpdated">Waiting for sentiment data…</p>
+</article>
+<article class="panel advisor-panel" id="advisor">
+<div class="panel-title"><div><span class="eyebrow">RULE-BASED INSIGHT</span><h3>Market Advisor</h3></div><span class="ai-badge">✧ PULSE AI</span></div>
+<div class="advisor-status"><span class="advisor-icon">✧</span><div><small>Current market stance</small><h2 id="stance">Analyzing…</h2></div></div>
+<p id="advisorText" class="advisor-copy">Market sentiment and market breadth will appear here when data loads.</p>
+<div class="advisor-actions" id="advisorActions"><span>• Sentiment analysis</span><span>• Risk awareness</span><span>• No guaranteed predictions</span></div>
+<div class="disclaimer">This is an educational signal based on public indicators, not a personalized recommendation.</div>
+</article>
+</section>
+<section class="panel market-panel" id="markets">
+<div class="section-heading"><div><span class="eyebrow">MARKET DISCOVERY</span><h3>Top Crypto Assets</h3><p>Ranked by market capitalization · ATH / ATL history</p></div>
+<div class="table-controls"><input id="coinSearch" placeholder="Search coin or symbol…"><select id="coinSort"><option value="market_cap_desc">Market cap</option><option value="volume_desc">24h volume</option><option value="price_change_percentage_24h_desc">Top gainers</option><option value="price_change_percentage_24h_asc">Top losers</option></select></div></div>
+<div class="table-wrap"><table><thead><tr><th>ASSET</th><th>PRICE</th><th>24H</th><th>MARKET CAP</th><th>24H VOLUME</th><th>ATH</th><th>ATL</th></tr></thead><tbody id="coinRows"><tr><td colspan="7" class="loading-row">Fetching market data…</td></tr></tbody></table></div>
+<div class="table-foot"><span id="coinCount">Top market assets</span><span>Source: CoinGecko · Values may be delayed</span></div>
+</section>
+<section class="two-col" id="calculators">
+<article class="panel"><div class="panel-title"><div><span class="eyebrow">YOUR NUMBERS</span><h3>Investment Calculator</h3></div><span class="source-tag">INR / USD</span></div>
+<div class="form-grid"><label>Investment amount<input id="investAmount" type="number" value="10000" min="0"></label><label>Buy price<input id="buyPrice" type="number" value="100" min="0" step="any"></label><label>Expected sell price<input id="sellPrice" type="number" value="130" min="0" step="any"></label><label>Fees (%)<input id="feePct" type="number" value="0.2" min="0" step="any"></label></div>
+<div class="calc-result"><div><small>Estimated net profit / loss</small><strong id="profitResult">—</strong></div><div><small>Expected ROI</small><b id="roiResult">—</b></div><div><small>Coins received</small><b id="coinsResult">—</b></div></div>
+<p class="muted tiny">Estimate excludes tax, slippage and other exchange-specific charges.</p></article>
+<article class="panel"><div class="panel-title"><div><span class="eyebrow">AVERAGING STRATEGY</span><h3>DCA Calculator</h3></div><span class="source-tag">SIMULATOR</span></div>
+<div class="form-grid"><label>Buy 1 amount<input id="dcaA1" type="number" value="5000"></label><label>Buy 1 price<input id="dcaP1" type="number" value="100"></label><label>Buy 2 amount<input id="dcaA2" type="number" value="5000"></label><label>Buy 2 price<input id="dcaP2" type="number" value="80"></label></div>
+<div class="calc-result"><div><small>Average buy price</small><strong id="dcaAvg">—</strong></div><div><small>Total invested</small><b id="dcaTotal">—</b></div><div><small>Total coins</small><b id="dcaCoins">—</b></div></div></article>
+</section>
+<section class="two-col">
+<article class="panel" id="security"><div class="panel-title"><div><span class="eyebrow">ON-CHAIN RISK CHECK</span><h3>Token Scam Detector</h3></div><span class="source-tag">GoPlus Security</span></div>
+<p class="muted">Check a supported EVM token contract. This scan detects selected warning signs; it cannot prove a token is safe.</p>
+<div class="security-form"><select id="chainId"><option value="1">Ethereum</option><option value="56">BNB Chain</option><option value="137">Polygon</option><option value="42161">Arbitrum</option><option value="8453">Base</option><option value="43114">Avalanche</option></select><input id="contractAddress" placeholder="Paste token contract address (0x…)"><button class="primary-btn" id="scanBtn">Scan token ↗</button></div>
+<div id="securityResult" class="security-result"><span class="muted">Your token security report will appear here.</span></div></article>
+<article class="panel"><div class="panel-title"><div><span class="eyebrow">DEX LIQUIDITY LOOKUP</span><h3>Pair &amp; Liquidity Finder</h3></div><span class="source-tag">DEX Screener</span></div>
+<p class="muted">Search a token symbol or trading pair to inspect DEX pools and reported liquidity.</p>
+<div class="security-form"><input id="dexQuery" placeholder="e.g. PEPE, SOL/USDC"><button class="primary-btn" id="dexBtn">Find pools ↗</button></div>
+<div id="dexResult" class="dex-result"><span class="muted">Search results will appear here.</span></div></article>
+</section>
+<section class="panel" id="learn"><div class="section-heading"><div><span class="eyebrow">LEARN THE NUMBERS</span><h3>Crypto Formula Library</h3><p>Core formulas used in market and risk analysis.</p></div></div>
+<div class="formula-grid">
+<div class="formula"><b>Return on Investment (ROI)</b><code>((Sell value − Cost) ÷ Cost) × 100</code><p>Measures profit or loss relative to initial investment.</p></div>
+<div class="formula"><b>Market Capitalization</b><code>Price × Circulating Supply</code><p>Approximate market value of circulating tokens.</p></div>
+<div class="formula"><b>Fully Diluted Valuation (FDV)</b><code>Price × Max / Total Supply</code><p>Hypothetical valuation if all stated supply were circulating.</p></div>
+<div class="formula"><b>Average Buy Price</b><code>Total amount spent ÷ Total coins</code><p>Weighted average cost across multiple purchases.</p></div>
+<div class="formula"><b>Liquidity / Market Cap</b><code>Pool liquidity ÷ Market cap × 100</code><p>A rough comparison; pool depth and venue coverage matter.</p></div>
+<div class="formula"><b>Risk / Reward</b><code>Potential reward ÷ Potential loss</code><p>Compares a trade's planned upside with downside.</p></div>
+<div class="formula"><b>Drawdown from ATH</b><code>((Current − ATH) ÷ ATH) × 100</code><p>Shows how far price is below its all-time high.</p></div>
+<div class="formula"><b>Break-even Sell Price</b><code>Buy price × (1 + fee rate) ÷ (1 − fee rate)</code><p>Approximation for matching buy and sell fees.</p></div>
+</div>
+<div class="risk-note"><b>Important:</b> No single formula can reliably label a cryptocurrency as genuine or a scam. Verify contracts, liquidity depth, ownership permissions, holder concentration, audits, exchange quality and independent sources. Security APIs can miss new or sophisticated attacks.</div>
+</section>
+<footer class="site-footer">
+<div class="brand mini-brand"><span class="brand-mark">◈</span><span>CryptoPulse <b>AI</b></span></div>
+<span>Market data by CoinGecko, Alternative.me, DEX Screener &amp; GoPlus.</span>
+<span>Educational use only · Not investment advice.</span>
+<nav class="footer-links" aria-label="Legal and information links">
+<a href="pages/about.html">About Us</a>
+<a href="pages/contact.html">Contact Us</a>
+<a href="pages/privacy-policy.html">Privacy Policy</a>
+<a href="pages/terms.html">Terms &amp; Conditions</a>
+<a href="pages/disclaimer.html">Disclaimer</a>
+<a href="pages/cookie-policy.html">Cookie Policy</a>
+<a href="pages/risk-disclosure.html">Risk Disclosure</a>
+<a href="pages/faq.html">FAQ</a>
+</nav>
+<span class="footer-copy">© 2026 CryptoPulse AI. All rights reserved.</span>
+</footer>
+</main>
+</div>
+<div class="toast" id="toast"></div>
+<script src="app.js"></script>
+<style>
+.footer-links{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:14px;padding-top:14px;border-top:1px solid rgba(140,165,195,.16)}
+.footer-links a{color:#9aacc4;text-decoration:none;font-size:11px}
+.footer-links a:hover{color:#51d6d0}
+.footer-copy{display:block;margin-top:10px;color:#8192aa;font-size:10px}
+</style>
+</body>
+</html>
